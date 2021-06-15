@@ -169,6 +169,7 @@ pub fn parse_language_tag(tag string) ?Locale {
 		if m[tag_name] !in language.regions {
 			return parsing_error(.deprecated_or_privateuse, '($tag_name: ${m[tag_name]})')
 		}
+		m['territory'] = m[tag_name]
 		if m['suffix'] != '' {
 			pre_suffix = m['suffix'] // afater `region` subtag
 		}

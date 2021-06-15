@@ -23,7 +23,7 @@ pub fn (l Locale) str() string {
 // Identifier for POSIX platform. Not include modifier.
 pub fn (l Locale) posix_identifier() string {
 	// language[_territory[.codeset]]
-	mut s := l.language
+	mut s := l.language.before('-')
 	if l.territory.len > 0 {
 		s += '_$l.territory'
 		if l.codeset.len > 0 {
